@@ -1,0 +1,112 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <tab name="Init" type="InitTab" active="true" scrollx="24.885815858841056" scrolly="270.00000000000006" scale="1">
+    <block xmlns="https://developers.google.com/blockly/xml" type="loadScene" id="ksU_/Oh3kay!tw]Z4riP" x="11" y="-190">
+      <mutation xmlns="http://www.w3.org/1999/xhtml" enableonprogress="false" enableonerror="false" enablealias="false"></mutation>
+      <value name="URL">
+        <shadow type="text" id="E_ZMPp=BggQvHqV3~_XV">
+          <field name="TEXT">path/to/scene.gltf</field>
+        </shadow>
+      </value>
+      <statement name="DO">
+        <block type="setTimeout" id="vBBdjo`]DCfa$,hsobU?">
+          <value name="VALUE">
+            <shadow type="math_number" id=":*KX,IPXPFe_k0a)*|1)">
+              <field name="NUM">2</field>
+            </shadow>
+          </value>
+          <statement name="DO">
+            <block type="setActiveCamera" id="Iy4/gp@|`M)T79aaJo:H">
+              <value name="CAMERA">
+                <shadow type="objectList" id="NH+CS7Bxd6:+utx$H/`r">
+                  <field name="FIELDNAME">Camera_Start</field>
+                </shadow>
+              </value>
+              <next>
+                <block type="createPhysicsBody" id="N}qz+/]W8qTPfqEY:l0s">
+                  <mutation xmlns="http://www.w3.org/1999/xhtml" body_type="DYNAMIC"></mutation>
+                  <field name="TYPE">DYNAMIC</field>
+                  <field name="SHAPE">BOX</field>
+                  <value name="OBJECT">
+                    <shadow type="objectList" id="03^v2D2E;(Ej8V1G.wpp">
+                      <field name="FIELDNAME">Barrier_Room_1</field>
+                    </shadow>
+                  </value>
+                  <value name="MASS">
+                    <shadow type="math_number" id="SCb{c_#qjo@AHHxIG~t)">
+                      <field name="NUM">1</field>
+                    </shadow>
+                  </value>
+                  <next>
+                    <block type="createPhysicsBody" id="N/WL(Yv%;I;NS%7)FLu7">
+                      <mutation xmlns="http://www.w3.org/1999/xhtml" body_type="DYNAMIC"></mutation>
+                      <field name="TYPE">DYNAMIC</field>
+                      <field name="SHAPE">BOX</field>
+                      <value name="OBJECT">
+                        <shadow type="objectList" id="-7g`voEhWgd4X0bk?A:V">
+                          <field name="FIELDNAME">Barrier_Room_2</field>
+                        </shadow>
+                      </value>
+                      <value name="MASS">
+                        <shadow type="math_number" id="g@XGcpZ(AbsN25b^Y#eJ">
+                          <field name="NUM">1</field>
+                        </shadow>
+                      </value>
+                      <next>
+                        <block type="createPhysicsBody" id="X0rcb.dV6m7/3501(9(^">
+                          <mutation xmlns="http://www.w3.org/1999/xhtml" body_type="DYNAMIC"></mutation>
+                          <field name="TYPE">DYNAMIC</field>
+                          <field name="SHAPE">BOX</field>
+                          <value name="OBJECT">
+                            <shadow type="objectList" id="8imlCUA3h9G2`d4+~V(4">
+                              <field name="FIELDNAME">Barrier_Room_3</field>
+                            </shadow>
+                          </value>
+                          <value name="MASS">
+                            <shadow type="math_number" id="e(+f#*aJ%P[oj)74,7Mc">
+                              <field name="NUM">1</field>
+                            </shadow>
+                          </value>
+                        </block>
+                      </next>
+                    </block>
+                  </next>
+                </block>
+              </next>
+            </block>
+          </statement>
+        </block>
+      </statement>
+    </block>
+  </tab>
+  <tab name="New Tab" type="CommonTab" active="false" scrollx="129.46112060546898" scrolly="-350" scale="1">
+    <block xmlns="https://developers.google.com/blockly/xml" type="whenClicked" id="gEys_k9`OOzk-Bcba}D}" inline="false" x="-69" y="350">
+      <mutation xmlns="http://www.w3.org/1999/xhtml" adveventoptions="false" enableifmissed="false"></mutation>
+      <field name="X_RAY">FALSE</field>
+      <field name="DOUBLE_CLICK">FALSE</field>
+      <field name="LEFT_BUTTON">TRUE</field>
+      <field name="MIDDLE_BUTTON">TRUE</field>
+      <field name="RIGHT_BUTTON">TRUE</field>
+      <value name="VALUE">
+        <shadow type="objectList" id="zB#=y63F$*bYaP#U4}$)">
+          <field name="FIELDNAME">Door 1</field>
+        </shadow>
+      </value>
+      <statement name="DO">
+        <block type="zoomCameraToObject" id="`TXb5W$~Vz1`cFpQf0v8">
+          <mutation xmlns="http://www.w3.org/1999/xhtml" whenfinishedslot="false"></mutation>
+          <value name="OBJECT">
+            <shadow type="objectList" id="c#P[;$U,3ZU%#ns,,)ZU">
+              <field name="FIELDNAME">Camera_R1</field>
+            </shadow>
+          </value>
+          <value name="DURATION">
+            <shadow type="math_number" id="i0479q(]b@`N3qY_d[P0">
+              <field name="NUM">1</field>
+            </shadow>
+          </value>
+        </block>
+      </statement>
+    </block>
+  </tab>
+  <editorsettings viewport-x="849" viewport-y="45" viewport-w="576" viewport-h="382.5" viewport-hidden="false" toolbox-library-mode="false" toolbox-minimized-mode="false"></editorsettings>
+</xml>

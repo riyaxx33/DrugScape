@@ -1,0 +1,42 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <tab name="Init" type="InitTab" active="false" scrollx="24.885815858841056" scrolly="270" scale="1">
+    <block xmlns="https://developers.google.com/blockly/xml" type="initSettings" id="+)~F+bpt4-welJ{9/iG+" x="230" y="-270">
+      <field name="LOAD_COMP_ASSETS">FALSE</field>
+      <field name="FULLSCREEN">TRUE</field>
+      <field name="BKG_TRANSPARENCY">FALSE</field>
+      <field name="PRESERVE_DRAW_BUF">FALSE</field>
+      <field name="FADE_ANNOTATIONS">TRUE</field>
+    </block>
+  </tab>
+  <tab name="New Tab" type="CommonTab" active="true" scrollx="129.46112060546886" scrolly="46.24794387817383" scale="1">
+    <block xmlns="https://developers.google.com/blockly/xml" type="whenClicked" id="gEys_k9`OOzk-Bcba}D}" inline="false" x="-90" y="270">
+      <mutation xmlns="http://www.w3.org/1999/xhtml" adveventoptions="false" enableifmissed="false"></mutation>
+      <field name="X_RAY">FALSE</field>
+      <field name="DOUBLE_CLICK">FALSE</field>
+      <field name="LEFT_BUTTON">TRUE</field>
+      <field name="MIDDLE_BUTTON">TRUE</field>
+      <field name="RIGHT_BUTTON">TRUE</field>
+      <value name="VALUE">
+        <shadow type="objectList" id="zB#=y63F$*bYaP#U4}$)">
+          <field name="FIELDNAME">Door 1</field>
+        </shadow>
+      </value>
+      <statement name="DO">
+        <block type="zoomCameraToObject" id="`TXb5W$~Vz1`cFpQf0v8">
+          <mutation xmlns="http://www.w3.org/1999/xhtml" whenfinishedslot="false"></mutation>
+          <value name="OBJECT">
+            <shadow type="objectList" id="c#P[;$U,3ZU%#ns,,)ZU">
+              <field name="FIELDNAME">Camera_R1</field>
+            </shadow>
+          </value>
+          <value name="DURATION">
+            <shadow type="math_number" id="i0479q(]b@`N3qY_d[P0">
+              <field name="NUM">1</field>
+            </shadow>
+          </value>
+        </block>
+      </statement>
+    </block>
+  </tab>
+  <editorsettings viewport-x="849" viewport-y="45" viewport-w="576" viewport-h="382.5" viewport-hidden="false" toolbox-library-mode="false" toolbox-minimized-mode="false"></editorsettings>
+</xml>

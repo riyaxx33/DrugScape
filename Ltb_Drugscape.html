@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<!-- __V3D_PUZZLES__ - enable Puzzles button in the App Manager -->
+<!-- __V3D_TEMPLATE__ - template-based file; delete this line to prevent this file from being updated -->
+<html lang="en">
+<head>
+  <title>Verge3D Web Interactive</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+  <!-- Search Engines -->
+  <meta name="description" content="Interactive 3D Web application made with Verge3D. Immerse yourself in amazing graphics experience offered by state-of-the art WebGL and HTML5 technologies.">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Verge3D Web Interactive">
+  <meta name="twitter:description" content="Interactive 3D Web application made with Verge3D. Immerse yourself in amazing graphics experience offered by state-of-the art WebGL and HTML5 technologies.">
+  <meta name="twitter:image:src" content="https://cdn.soft8soft.com/images/player_socials.jpg">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Verge3D Web Interactive">
+  <meta property="og:description" content="Interactive 3D Web application made with Verge3D. Immerse yourself in amazing graphics experience offered by state-of-the art WebGL and HTML5 technologies.">
+  <meta property="og:image" content="https://cdn.soft8soft.com/images/player_socials.jpg">
+  <meta property="og:type" content="website">
+
+  <meta name="generator" content="Verge3D 4.7.1">
+
+  <!-- favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="media/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="media/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="media/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="media/favicon-16x16.png">
+  <link rel="manifest" href="media/manifest.json">
+  <link rel="mask-icon" href="media/safari-pinned-tab.svg" color="#0048a5">
+  <meta name="theme-color" content="#ffffff">
+
+  <script src="v3d.js"></script>
+  <script src="Ltb_Drugscape.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="Ltb_Drugscape.css">
+  <style>
+    /* Basic styling for the pop-up */
+    #questionPopup {
+        display: none; /* Hidden by default */
+        position: fixed;
+        z-index: 100;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        border: 2px solid #ccc;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    #popupOverlay {
+        display: none; /* Hidden by default */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 99;
+    }
+    #custom-alert {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+    }
+    #alert-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.5);
+        z-index: 999;
+    }
+    .alert-button {
+        margin-top: 10px;
+        padding: 5px 15px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+</style>
+  
+</head>
+
+<body>
+  <div id="v3d-container">
+    <div id="fullscreen-button" class="fullscreen-button fullscreen-open" title="Toggle fullscreen mode"></div>
+  </div>
+
+  <div id="alert-overlay"></div>
+    <div id="custom-alert">
+        <p>Welcome to Drugscape! Engage in this meaningful journey as you play a part in being a healthy and responsible person! If you are ready to take on this challenge, click on the nearest door to start!</p>
+        <button class="alert-button" onclick="closeCustomAlert()">OK</button>
+    </div>
+
+    <script>
+      function showCustomAlert() {
+          document.getElementById('custom-alert').style.display = 'block';
+          document.getElementById('alert-overlay').style.display = 'block';
+      }
+  
+      function closeCustomAlert() {
+          document.getElementById('custom-alert').style.display = 'none';
+          document.getElementById('alert-overlay').style.display = 'none';
+      }
+  </script>
+
+
+<div id="popupOverlay"></div>
+<div id="questionPopup">
+    <h2 id="questionText">Question will go here</h2>
+    <div id="optionsContainer"></div>
+    <button id="closeButton">Close</button>
+</div>
+<div id="question-popup" style="display:none;">
+    <div id="question-text">Please enter your answer:</div>
+    <input type="text" id="user-answer" placeholder="Type your answer here">
+    <button id="submit-answer">Submit Answer</button>
+</div>
+
+
+<script >
+    // Create an array to hold your questions
+    const questions = [
+        {
+            question: "Some of the commonlly consumed drugs in Singapore are Methamphetamine, heroin, and cannabis. How many hits per hour is considered safe?",
+            options: ["3", "5", "0", "1"],
+            answer: 2, // Index of the correct answer
+            explanation: "Explanation: No amount of hits is considered safe! There is often widespread falsehoods on drug use. You should always evaluate the information correctly before making a decision!"
+        },
+        {
+            question: "Which of the following is a consequence of drugs?",
+            options: ["Memory loss", "Death", "Dilated pupils", "Anxiety","All of the above"],
+            answer: 4, // Index of the correct answer
+            explanation: "Explanation: These are just some of the symptoms of taking drugs. Taking drugs not only affects your health and wellbeing, it can also affect aspects in your life such as career and strain relationships with your loved ones, affecting their quality of life!"
+        },
+        {
+            question: "What could be the reasons for first-time drug use among young adults?",
+            options: ["Peer pressure", "Academic stress", "Curiosity", "All of the above"],
+            answer: 3,
+            explanation: ""
+
+        },
+        {
+            question: "What do you think drug dealers might do to gain a new customer’s trust?",
+            options: ["Offer them free samples to try", "Share personal stories about how they started using drugs",
+            "Present themselves as friends who genuinely care and that they want to share the joy of drug use", "All of the above"],
+            answer: 3,
+            explanation: "Drug dealers could use any tactics to convince others to buy and they will usually talk about the benefits without mentioning the consequences!"
+        },
+
+        {
+            question: "What is the best resource for someone struggling to find a coping mechanism?",
+            options: ["Offer to talk to them", "Offer healthy alternaives to substances",
+            "Encorage them to speak to a trusted adult or professional", "All of the above"],
+            answer: 1,
+            explanation: "Try to help a friend who is struggling because at least, you would have tried!"
+        }
+        
+    ];
+
+    let currentHotspot; // Store the current hotspot for removal
+
+    // Example questions and answers (you can customize this)
+    const textquestions = [
+    { text: `October 16<br>
+        Dear diary, today was just another day of suffocating expectations. I spent hours buried in textbooks, my parents' voices echoing in my mind—“You must excel, Mei Lin. You’re our pride.” Sometimes I wonder if they even see me, the real me, beneath the grades and accolades.<br>
+        But then there was Kai. He’s different—wild, carefree, and completely unbothered by the weight of expectations. When he laughed, it felt like a spark ignited inside me. He showed me a world where the rules bend and break, where I could actually breathe.<br>
+        I can't believe I let him pull me in so easily. The pills, the powder... they were supposed to be a way to escape, to feel something other than this relentless pressure. It worked, for a moment. But now, the rush is fading, and the reality of what I’ve done is sinking in.<br>
+        I thought I could handle it, but I’m scared. Scared of what I’m becoming, scared of my parents finding out, and scared of facing myself. I can’t keep living like this.<br>
+        I need to dispose of the drugs. It’s the only way to reclaim a piece of myself. They’re in the next room, and I can’t let them control me any longer. Maybe this is the first step towards freedom.<br>
+        I just hope I’m brave enough to take it.<br><br> What would you say to persuade Mei Lin not to use drugs if you found her diary as a friend?`, hotspot: "R2_1_Diary" },
+        { text: "How will you say no to drugs?", hotspot: "R3_2" }
+    ];
+
+    // Function to check the answer
+    function checkAnswer(selectedIndex, questionIndex) {
+        const question = questions[questionIndex];
+        if (selectedIndex === question.answer) {
+            alert("Correct!");
+            removeHotspot(questionIndex); // Custom function to remove hotspot
+        } else {
+            alert("Wrong answer. Please try again.");
+        }
+    }
+
+    // Custom function to remove the hotspot
+    function removeHotspot(index) {
+        const hotspotName = `Hotspot${index + 1}`; // Assuming your hotspots are named Hotspot1, Hotspot2, etc.
+        // Code to remove the hotspot in Verge3D, use appropriate function depending on your setup
+        console.log(hotspotName + " removed."); // Placeholder for actual hotspot removal logic
+    }
+
+    </script>
+    <script>
+        // Function to show the question popup
+        function showQuestion(questionIndex) {
+            const question = questions[questionIndex];
+            document.getElementById('questionText').innerText = question.question;
+
+            const optionsContainer = document.getElementById('optionsContainer');
+            optionsContainer.innerHTML = ''; // Clear previous options
+
+            question.options.forEach((option, index) => {
+                const button = document.createElement('button');
+                button.innerText = option;
+                button.onclick = () => checkAnswer(index, questionIndex); // Check answer on click
+                optionsContainer.appendChild(button);
+            });
+
+            document.getElementById('popupOverlay').style.display = 'block';
+            document.getElementById('questionPopup').style.display = 'block';
+        }
+
+
+        // Function to close the popup
+        document.getElementById('closeButton').onclick = () => {
+            document.getElementById('popupOverlay').style.display = 'none';
+            document.getElementById('questionPopup').style.display = 'none';
+        };
+    </script>
+
+    <script>
+        function showTextInput(hotspot) {
+            currentHotspot = hotspot; // Store the current hotspot to remove later
+            
+            // Find the corresponding question based on the hotspot clicked
+            const question = textquestions.find(q => q.hotspot === hotspot.name); // Adjust to how you store hotspot names
+
+            if (question) {
+                document.getElementById('question-text').innerText = textquestions.text; // Set the question text
+            }
+
+            document.getElementById('question-popup').style.display = 'block';
+            document.getElementById('user-answer').value = ''; // Clear previous input
+        }
+
+        // Handle the submit button
+        document.getElementById('submit-answer').addEventListener('click', function() {
+            const userAnswer = document.getElementById('user-answer').value.trim();
+            
+            if (currentHotspot) {
+                // Logic to remove or hide the hotspot
+                currentHotspot.visible = false; // Example: hide the hotspot in Verge3D
+            }
+            
+            // Optionally, log the user's answer
+            console.log("User Answer Submitted: " + userAnswer);
+            
+            document.getElementById('question-popup').style.display = 'none'; // Close the popup
+        });
+    </script>
+</body>
+
+</html>

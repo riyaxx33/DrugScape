@@ -1,0 +1,13 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <tab name="Init" type="InitTab" active="false" scrollx="24.885815858840942" scrolly="0" scale="1"></tab>
+  <tab name="New Tab" type="CommonTab" active="true" scrollx="129.46112060546864" scrolly="1.1368683772161603e-13" scale="1">
+    <block xmlns="https://developers.google.com/blockly/xml" type="setActiveCamera" id="Ujo!ND)B2U1kO.^z)]!J" x="-50" y="71">
+      <value name="CAMERA">
+        <shadow type="objectList" id="c}1/)0cV1v.ID%%f#-7t">
+          <field name="FIELDNAME">Camera_R1</field>
+        </shadow>
+      </value>
+    </block>
+  </tab>
+  <editorsettings viewport-x="849" viewport-y="45" viewport-w="576" viewport-h="382.5" viewport-hidden="false" toolbox-library-mode="false" toolbox-minimized-mode="false"></editorsettings>
+</xml>
