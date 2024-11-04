@@ -83,6 +83,10 @@ body {
     background-color: #0056b3;
 }
 
+.door-modal-active {
+    display: flex !important; /* Only display when this class is applied */
+}
+
 #questionPopup {
     display: none; /* Hidden by default */
     position: fixed;

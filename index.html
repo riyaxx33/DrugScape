@@ -45,19 +45,57 @@
         <div class="modal">
             <h2>Welcome to Drugscape!</h2>
             <p>Click on the door to begin your journey.</p>
-            <button class="close-button" onclick="closeModal()">Got it!</button>
+            <button class="close-button" onclick="closeInstructionModal()">Got it!</button>
         </div>
     </div>
+
+
     <script>
         // Show modal when page loads
         window.onload = function() {
             document.getElementById('instructionModal').style.display = 'flex';
         };
+        
+
 
         // Function to close the modal
-        function closeModal() {
+        function closeInstructionModal() {
             document.getElementById('instructionModal').style.display = 'none';
         }
+
+        function showDoor1Modal() {
+            // Check if the modal already exists
+            if (!document.getElementById('door1Modal')) {
+                // Create the overlay div
+                const overlay = document.createElement('div');
+                overlay.classList.add('modal-overlay');
+                overlay.id = 'door1Modal';
+
+                // Set innerHTML for the modal content
+                overlay.innerHTML = `
+                    <div class="modal">
+                        <h2>Door Clicked!</h2>
+                        <p>You are going to enter the first room. You have to find 2 pieces of paper and answer the corresponding questions before you can proceed to the next room.</p>
+                        <button class="close-button" onclick="closeDoor1Modal()">Continue</button>
+                    </div>
+                `;
+
+                // Append overlay to the document body
+                document.body.appendChild(overlay);
+
+                // Display the modal overlay
+                overlay.style.display = 'flex';
+            }
+        }
+
+        // Function to close the door modal
+        function closeDoor1Modal() {
+            const modal = document.getElementById('door1Modal');
+            if (modal) {
+                modal.remove();
+            }
+        }
+
     </script>
   <div id="v3d-container">
     <div id="fullscreen-button" class="fullscreen-button fullscreen-open" title="Toggle fullscreen mode"></div>
