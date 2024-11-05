@@ -1,6 +1,6 @@
 <xml xmlns="http://www.w3.org/1999/xhtml">
   <tab name="Init" type="InitTab" active="false" scrollx="24.885815858840942" scrolly="0" scale="1"></tab>
-  <tab name="New Tab" type="CommonTab" active="true" scrollx="39.131889567902704" scrolly="-18.188154831373595" scale="0.523065140252705">
+  <tab name="New Tab" type="CommonTab" active="true" scrollx="39.506289014416325" scrolly="-17.57058981963189" scale="0.5225549805196723">
     <block xmlns="https://developers.google.com/blockly/xml" type="setActiveCamera" id="Ujo!ND)B2U1kO.^z)]!J" x="130" y="90">
       <value name="CAMERA">
         <shadow type="objectList" id="c}1/)0cV1v.ID%%f#-7t">
@@ -101,5 +101,5 @@
       </statement>
     </block>
   </tab>
-  <editorsettings viewport-x="955" viewport-y="50.5" viewport-w="639" viewport-h="382.5" viewport-hidden="false" toolbox-library-mode="false" toolbox-minimized-mode="false"></editorsettings>
+  <editorsettings viewport-x="1018" viewport-y="50.5" viewport-w="576" viewport-h="382.5" viewport-hidden="false" toolbox-library-mode="false" toolbox-minimized-mode="false"></editorsettings>
 </xml>
