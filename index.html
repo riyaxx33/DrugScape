@@ -45,7 +45,7 @@
         <div class="modal">
             <h2>Welcome to Drugscape!</h2>
             <p>In this journey, you will get to experience the journey of an abandoned HDB block 78 which was a once-vibrant community life that began to unravel as drugs infiltrated....<br>
-                To proceed to another room and escape this block, you will need to answer a set number of questions per room stated at the start. You can click on objects to get clues and answer questions.<br><br>
+                To proceed to another room and escape this block, you will need to answer a set number of questions per room stated at the start. Use the arrow keys to walk around, and trackpad or mouse to look around. Click on objects to get clues and answer questions.<br><br>
                 Are you ready to take on the challenge?<br>Click on the door to begin.</p>
             <button class="close-button" onclick="closeInstructionModal()">I'm ready!</button>
         </div>
@@ -88,9 +88,15 @@
 </div>
 
 
-<script >
+<!-- <script >
     // Create an array to hold your questions
     const questions = [
+        {
+            question: "What is the minimum sentence received for consuming drugs?",
+            options: ["5", "1","10", "Life Sentence"],
+            answer: 1,
+            explanation: "The punishment provision can be found in the Section 33(3A) of the MDA, which provides for an imprisonment term of not less than one year but not more than 10 years and also a fine not exceeding $20,000 (this applies only to offences after 1 April 2019)"
+        },
         {
             question: "Some of the commonlly consumed drugs in Singapore are Methamphetamine, heroin, and cannabis. How many hits per hour is considered safe?",
             options: ["3", "5", "0", "1"],
@@ -128,7 +134,6 @@
         
     ];
 
-    let currentHotspot; // Store the current hotspot for removal
 
     // Example questions and answers (you can customize this)
     const textquestions = [
@@ -142,44 +147,52 @@
         { text: "How will you say no to drugs?", hotspot: "R3_2" }
     ];
 
-    // Function to check the answer
-    function checkAnswer(selectedIndex, questionIndex) {
+    // Define function to match Verge3D's execution context
+    function showMCQPopup(app, v3d, puzzles, VARS, PROC) {
+        const questionIndex = 0; // hardcode to first question or modify as needed
         const question = questions[questionIndex];
-        if (selectedIndex === question.answer) {
-            alert("Correct!");
-            removeHotspot(questionIndex); // Custom function to remove hotspot
-        } else {
-            alert("Wrong answer. Please try again.");
+        
+        const modalHTML = `
+            <div class="modal-overlay" id="mcqModal">
+                <div class="modal">
+                    <h2>${question.question}</h2>
+                    <div class="options-container">
+                        ${question.options.map((option, index) => `
+                            <button class="option-button" onclick="checkMCQAnswer(${index}, ${questionIndex})">${option}</button>
+                        `).join('')}
+                    </div>
+                </div>
+            </div>
+        `;
+
+        document.body.insertAdjacentHTML('beforeend', modalHTML);
+        
+        // Get modal and display it
+        const modal = document.getElementById('mcqModal');
+        if (modal) {
+            modal.style.display = 'flex';
         }
     }
 
-    </script>
-    <script>
-        // Function to show the question popup
-        function showQuestion(questionIndex) {
-            const question = questions[questionIndex];
-            document.getElementById('questionText').innerText = question.question;
-
-            const optionsContainer = document.getElementById('optionsContainer');
-            optionsContainer.innerHTML = ''; // Clear previous options
-
-            question.options.forEach((option, index) => {
-                const button = document.createElement('button');
-                button.innerText = option;
-                button.onclick = () => checkAnswer(index, questionIndex); // Check answer on click
-                optionsContainer.appendChild(button);
-            });
-
-            document.getElementById('popupOverlay').style.display = 'block';
-            document.getElementById('questionPopup').style.display = 'block';
+    // Make functions globally available
+    window.showMCQPopup = showMCQPopup;
+    
+    window.checkMCQAnswer = function(selectedIndex, questionIndex) {
+        const question = questions[questionIndex];
+        if (selectedIndex === question.answer) {
+            alert("Correct!" + (question.explanation ? "\n\n" + question.explanation : ""));
+            closeMCQModal();
+        } else {
+            alert("Wrong answer. Please try again.");
         }
+    };
 
-
-        // Function to close the popup
-        document.getElementById('closeButton').onclick = () => {
-            document.getElementById('popupOverlay').style.display = 'none';
-            document.getElementById('questionPopup').style.display = 'none';
-        };
+    window.closeMCQModal = function() {
+        const modal = document.getElementById('mcqModal');
+        if (modal) {
+            modal.remove();
+        }
+    };
     </script>
 
     <script>
@@ -212,6 +225,6 @@
             document.getElementById('question-popup').style.display = 'none'; // Close the popup
         });
     </script>
-</body>
+</body> -->
 
 </html>

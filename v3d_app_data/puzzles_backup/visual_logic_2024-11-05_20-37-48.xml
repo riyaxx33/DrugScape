@@ -1,0 +1,105 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <tab name="Init" type="InitTab" active="false" scrollx="24.885815858840942" scrolly="0" scale="1"></tab>
+  <tab name="New Tab" type="CommonTab" active="true" scrollx="125.59196822071817" scrolly="57.72452485500488" scale="0.3905410400180648">
+    <block xmlns="https://developers.google.com/blockly/xml" type="setActiveCamera" id="Ujo!ND)B2U1kO.^z)]!J" x="130" y="90">
+      <value name="CAMERA">
+        <shadow type="objectList" id="c}1/)0cV1v.ID%%f#-7t">
+          <field name="FIELDNAME">Camera_Start</field>
+        </shadow>
+      </value>
+    </block>
+    <block xmlns="https://developers.google.com/blockly/xml" type="whenClicked" id="55;fv`G%$XFdlBWH5!`B" inline="false" x="110" y="150">
+      <mutation xmlns="http://www.w3.org/1999/xhtml" adveventoptions="false" enableifmissed="false"></mutation>
+      <field name="X_RAY">FALSE</field>
+      <field name="DOUBLE_CLICK">FALSE</field>
+      <field name="LEFT_BUTTON">TRUE</field>
+      <field name="MIDDLE_BUTTON">TRUE</field>
+      <field name="RIGHT_BUTTON">TRUE</field>
+      <value name="VALUE">
+        <shadow type="objectList" id="T^{Z]L|TlcguHV[!?[:u">
+          <field name="FIELDNAME">Door_1</field>
+        </shadow>
+      </value>
+      <statement name="DO">
+        <block type="execScript" id="4h)^i7^bUtUB6GZp*)V2">
+          <value name="TEXT">
+            <shadow type="textMultiline" id="-9JbuI}r]%8xixoepd$%">
+              <field name="HIGHLIGHT_MODE">javascript</field>
+              <field name="TEXT" editor-height="10" editor-width="520">// Make closeDoor1Modal function global first&amp;#10;window.closeDoor1Modal = function() {&amp;#10;    const modal = document.getElementById('door1Modal');&amp;#10;    if (modal) {&amp;#10;        modal.remove();&amp;#10;    }&amp;#10;};&amp;#10;&amp;#10;function showDoor1() {&amp;#10;    // Create style element&amp;#10;    const style = document.createElement('style');&amp;#10;    style.textContent = `&amp;#10;        .modal-overlay {&amp;#10;            position: fixed;&amp;#10;            top: 0;&amp;#10;            left: 0;&amp;#10;            width: 100%;&amp;#10;            height: 100%;&amp;#10;            background-color: rgba(0, 0, 0, 0.5);&amp;#10;            display: flex;&amp;#10;            justify-content: center;&amp;#10;            align-items: center;&amp;#10;            z-index: 1000;&amp;#10;        }&amp;#10;&amp;#10;        .modal {&amp;#10;            background-color: white;&amp;#10;            padding: 2rem;&amp;#10;            border-radius: 10px;&amp;#10;            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);&amp;#10;            max-width: 400px;&amp;#10;            text-align: center;&amp;#10;        }&amp;#10;&amp;#10;        .modal h2 {&amp;#10;            margin-top: 0;&amp;#10;            color: #333;&amp;#10;        }&amp;#10;&amp;#10;        .modal p {&amp;#10;            color: #666;&amp;#10;            line-height: 1.5;&amp;#10;        }&amp;#10;&amp;#10;        .close-button {&amp;#10;            background-color: #4CAF50;&amp;#10;            color: white;&amp;#10;            border: none;&amp;#10;            padding: 10px 20px;&amp;#10;            border-radius: 5px;&amp;#10;            cursor: pointer;&amp;#10;            font-size: 16px;&amp;#10;            margin-top: 15px;&amp;#10;        }&amp;#10;&amp;#10;        .close-button:hover {&amp;#10;            background-color: #45a049;&amp;#10;        }&amp;#10;    `;&amp;#10;    &amp;#10;    // Create modal HTML&amp;#10;    const modalHTML = `&amp;#10;        &lt;div class="modal-overlay" id="door1Modal"&gt;&amp;#10;            &lt;div class="modal"&gt;&amp;#10;                &lt;h2&gt;Welcome to the Void Deck!&lt;/h2&gt;&amp;#10;                &lt;p&gt;You need to find one question to proceed to the next room.&lt;br&gt;To proceed to the next room, click on the next door!&lt;/p&gt;&amp;#10;                &lt;button class="close-button" onclick="closeDoor1Modal()"&gt;Got it!&lt;/button&gt;&amp;#10;            &lt;/div&gt;&amp;#10;        &lt;/div&gt;&amp;#10;    `;&amp;#10;&amp;#10;    document.head.appendChild(style);&amp;#10;    document.body.insertAdjacentHTML('beforeend', modalHTML);&amp;#10;    &amp;#10;    const modal = document.getElementById('door1Modal');&amp;#10;    if (modal) {&amp;#10;        modal.style.display = 'flex';&amp;#10;    }&amp;#10;}&amp;#10;&amp;#10;// Make showDoor1 function global as well&amp;#10;window.showDoor1 = showDoor1;&amp;#10;&amp;#10;// Call the function&amp;#10;showDoor1();</field>
+            </shadow>
+          </value>
+          <next>
+            <block type="setActiveCamera" id="|Z.)Hvq/BkcNKTN%x{t1">
+              <value name="CAMERA">
+                <shadow type="objectList" id="K.MwhTOJp|@|K(sciL_y">
+                  <field name="FIELDNAME">Camera_R1</field>
+                </shadow>
+              </value>
+              <next>
+                <block type="tweenCameraExt" id="#e}?IZB2*jjUUnw/?of/">
+                  <mutation xmlns="http://www.w3.org/1999/xhtml" whenfinishedslot="false"></mutation>
+                  <field name="MOVEMENT_TYPE">LINEAR</field>
+                  <value name="POSITION">
+                    <block type="getActiveCamera" id="y=m/9ShUVXdBjKpP{d[i"></block>
+                  </value>
+                  <value name="DURATION">
+                    <shadow type="math_number" id=",q,*S34Qg!a2VyHv6+}C">
+                      <field name="NUM">5</field>
+                    </shadow>
+                  </value>
+                </block>
+              </next>
+            </block>
+          </next>
+        </block>
+      </statement>
+    </block>
+    <block xmlns="https://developers.google.com/blockly/xml" type="whenClicked" id="ES]_m1q%];aGsJ{-3Io-" inline="false" x="110" y="570">
+      <mutation xmlns="http://www.w3.org/1999/xhtml" adveventoptions="false" enableifmissed="false"></mutation>
+      <field name="X_RAY">FALSE</field>
+      <field name="DOUBLE_CLICK">FALSE</field>
+      <field name="LEFT_BUTTON">TRUE</field>
+      <field name="MIDDLE_BUTTON">TRUE</field>
+      <field name="RIGHT_BUTTON">TRUE</field>
+      <value name="VALUE">
+        <shadow type="objectList" id="hBenLRF-1S.E3JgJ6FM*">
+          <field name="FIELDNAME">R1_Clue</field>
+        </shadow>
+      </value>
+      <statement name="DO">
+        <block type="execScript" id="*V,2?;fk9`C){jhGR[fi">
+          <value name="TEXT">
+            <shadow type="textMultiline" id="z$!ux)wV64Q/JHLQN2Jt">
+              <field name="HIGHLIGHT_MODE">javascript</field>
+              <field name="TEXT" editor-height="10" editor-width="520">// Make closeClue1Modal function global first&amp;#10;window.closeClue1Modal = function() {&amp;#10;    const modal = document.getElementById('clue1Modal');&amp;#10;    if (modal) {&amp;#10;        modal.remove();&amp;#10;    }&amp;#10;};&amp;#10;function showClue1() {&amp;#10;    // Create style element&amp;#10;    const style = document.createElement('style');&amp;#10;    style.textContent = `&amp;#10;        .modal-overlay {&amp;#10;            position: fixed;&amp;#10;            top: 0;&amp;#10;            left: 0;&amp;#10;            width: 100%;&amp;#10;            height: 100%;&amp;#10;            background-color: rgba(0, 0, 0, 0.5);&amp;#10;            display: flex;&amp;#10;            justify-content: center;&amp;#10;            align-items: center;&amp;#10;            z-index: 1000;&amp;#10;        }&amp;#10;        .modal {&amp;#10;            background-color: white;&amp;#10;            padding: 2rem;&amp;#10;            border-radius: 10px;&amp;#10;            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);&amp;#10;            max-width: 400px;&amp;#10;            text-align: center;&amp;#10;        }&amp;#10;        .modal h2 {&amp;#10;            margin-top: 0;&amp;#10;            color: #333;&amp;#10;        }&amp;#10;        .modal p {&amp;#10;            color: #666;&amp;#10;            line-height: 1.5;&amp;#10;        }&amp;#10;        .close-button {&amp;#10;            background-color: #4CAF50;&amp;#10;            color: white;&amp;#10;            border: none;&amp;#10;            padding: 10px 20px;&amp;#10;            border-radius: 5px;&amp;#10;            cursor: pointer;&amp;#10;            font-size: 16px;&amp;#10;            margin-top: 15px;&amp;#10;        }&amp;#10;        .close-button:hover {&amp;#10;            background-color: #45a049;&amp;#10;        }&amp;#10;    `;&amp;#10;    &amp;#10;    // Create modal HTML&amp;#10;    const modalHTML = `&amp;#10;        &lt;div class="modal-overlay" id="clue1Modal"&gt;&amp;#10;            &lt;div class="modal"&gt;&amp;#10;                &lt;h2&gt;Welcome to the Void Deck!&lt;/h2&gt;&amp;#10;                &lt;p&gt;You need to find one question to proceed to the next room.&lt;br&gt;To proceed to the next room, click on the next door!&lt;/p&gt;&amp;#10;                &lt;button class="close-button" onclick="closeClue1Modal()"&gt;Got it!&lt;/button&gt;&amp;#10;            &lt;/div&gt;&amp;#10;        &lt;/div&gt;&amp;#10;    `;&amp;#10;    document.head.appendChild(style);&amp;#10;    document.body.insertAdjacentHTML('beforeend', modalHTML);&amp;#10;    &amp;#10;    const modal = document.getElementById('clue1Modal');&amp;#10;    if (modal) {&amp;#10;        modal.style.display = 'flex';&amp;#10;    }&amp;#10;}&amp;#10;// Make showClue1 function global as well&amp;#10;window.showClue1 = showClue1;&amp;#10;// Call the function&amp;#10;showClue1();</field>
+            </shadow>
+          </value>
+        </block>
+      </statement>
+    </block>
+    <block xmlns="https://developers.google.com/blockly/xml" type="whenClicked" id="}w4`Q9j{AaQ6I^0;ZGX!" inline="false" x="110" y="930">
+      <mutation xmlns="http://www.w3.org/1999/xhtml" adveventoptions="false" enableifmissed="false"></mutation>
+      <field name="X_RAY">FALSE</field>
+      <field name="DOUBLE_CLICK">FALSE</field>
+      <field name="LEFT_BUTTON">TRUE</field>
+      <field name="MIDDLE_BUTTON">TRUE</field>
+      <field name="RIGHT_BUTTON">TRUE</field>
+      <value name="VALUE">
+        <shadow type="objectList" id="8sj?P;aZBe8Pg@:{ww$C">
+          <field name="FIELDNAME">R1_1</field>
+        </shadow>
+      </value>
+      <statement name="DO">
+        <block type="execScript" id="kY(l{J(qjI5fKOkV`6mj">
+          <value name="TEXT">
+            <shadow type="textMultiline" id="7Y%xpVdRIQ/:WAL`~8@U">
+              <field name="HIGHLIGHT_MODE">javascript</field>
+              <field name="TEXT" editor-height="10" editor-width="520">showMCQPopup(0);</field>
+            </shadow>
+          </value>
+        </block>
+      </statement>
+    </block>
+  </tab>
+  <editorsettings viewport-x="1018" viewport-y="50.5" viewport-w="576" viewport-h="382.5" viewport-hidden="false" toolbox-library-mode="false" toolbox-minimized-mode="false"></editorsettings>
+</xml>
