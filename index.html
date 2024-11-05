@@ -44,10 +44,13 @@
     <div class="modal-overlay" id="instructionModal">
         <div class="modal">
             <h2>Welcome to Drugscape!</h2>
-            <p>Click on the door to begin your journey.</p>
-            <button class="close-button" onclick="closeInstructionModal()">Got it!</button>
+            <p>In this journey, you will get to experience the journey of an abandoned HDB block 78 which was a once-vibrant community life that began to unravel as drugs infiltrated....<br>
+                To proceed to another room and escape this block, you will need to answer a set number of questions per room stated at the start. You can click on objects to get clues and answer questions.<br><br>
+                Are you ready to take on the challenge?<br>Click on the door to begin.</p>
+            <button class="close-button" onclick="closeInstructionModal()">I'm ready!</button>
         </div>
     </div>
+
 
 
     <script>
@@ -63,38 +66,7 @@
             document.getElementById('instructionModal').style.display = 'none';
         }
 
-        function showDoor1Modal() {
-            // Check if the modal already exists
-            if (!document.getElementById('door1Modal')) {
-                // Create the overlay div
-                const overlay = document.createElement('div');
-                overlay.classList.add('modal-overlay');
-                overlay.id = 'door1Modal';
-
-                // Set innerHTML for the modal content
-                overlay.innerHTML = `
-                    <div class="modal">
-                        <h2>Door Clicked!</h2>
-                        <p>You are going to enter the first room. You have to find 2 pieces of paper and answer the corresponding questions before you can proceed to the next room.</p>
-                        <button class="close-button" onclick="closeDoor1Modal()">Continue</button>
-                    </div>
-                `;
-
-                // Append overlay to the document body
-                document.body.appendChild(overlay);
-
-                // Display the modal overlay
-                overlay.style.display = 'flex';
-            }
-        }
-
-        // Function to close the door modal
-        function closeDoor1Modal() {
-            const modal = document.getElementById('door1Modal');
-            if (modal) {
-                modal.remove();
-            }
-        }
+    
 
     </script>
   <div id="v3d-container">
@@ -179,13 +151,6 @@
         } else {
             alert("Wrong answer. Please try again.");
         }
-    }
-
-    // Custom function to remove the hotspot
-    function removeHotspot(index) {
-        const hotspotName = `Hotspot${index + 1}`; // Assuming your hotspots are named Hotspot1, Hotspot2, etc.
-        // Code to remove the hotspot in Verge3D, use appropriate function depending on your setup
-        console.log(hotspotName + " removed."); // Placeholder for actual hotspot removal logic
     }
 
     </script>

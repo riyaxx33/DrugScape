@@ -1,0 +1,67 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <tab name="Init" type="InitTab" active="false" scrollx="24.885815858840942" scrolly="0" scale="1"></tab>
+  <tab name="New Tab" type="CommonTab" active="true" scrollx="-6.7095293762864685" scrolly="-6.1990202551125435" scale="0.9328183401816788">
+    <block xmlns="https://developers.google.com/blockly/xml" type="setActiveCamera" id="Ujo!ND)B2U1kO.^z)]!J" x="130" y="90">
+      <value name="CAMERA">
+        <shadow type="objectList" id="c}1/)0cV1v.ID%%f#-7t">
+          <field name="FIELDNAME">Camera_Start</field>
+        </shadow>
+      </value>
+    </block>
+    <block xmlns="https://developers.google.com/blockly/xml" type="whenClicked" id="55;fv`G%$XFdlBWH5!`B" inline="false" x="110" y="150">
+      <mutation xmlns="http://www.w3.org/1999/xhtml" adveventoptions="false" enableifmissed="false"></mutation>
+      <field name="X_RAY">FALSE</field>
+      <field name="DOUBLE_CLICK">FALSE</field>
+      <field name="LEFT_BUTTON">TRUE</field>
+      <field name="MIDDLE_BUTTON">TRUE</field>
+      <field name="RIGHT_BUTTON">TRUE</field>
+      <value name="VALUE">
+        <shadow type="objectList" id="T^{Z]L|TlcguHV[!?[:u">
+          <field name="FIELDNAME">Door_1</field>
+        </shadow>
+      </value>
+      <statement name="DO">
+        <block type="execScript" id="4h)^i7^bUtUB6GZp*)V2">
+          <value name="TEXT">
+            <shadow type="textMultiline" id="-9JbuI}r]%8xixoepd$%">
+              <field name="HIGHLIGHT_MODE">javascript</field>
+              <field name="TEXT" editor-height="10" editor-width="520">function showDoor1() {&amp;#10;    console.log("Attempting to show modal"); // Debug log&amp;#10;&amp;#10;    // Create modal HTML&amp;#10;    const modalHTML = `&amp;#10;        &lt;div class="modal-overlay" id="door1Modal"&gt;&amp;#10;            &lt;div class="modal"&gt;&amp;#10;                &lt;h2&gt;Welcome to the First Room!&lt;/h2&gt;&amp;#10;                &lt;p&gt;You need to find 2 pieces of paper and answer the corresponding questions before proceeding to the next room.&lt;/p&gt;&amp;#10;                &lt;button class="close-button" onclick="closeDoor1Modal()"&gt;Got it!&lt;/button&gt;&amp;#10;            &lt;/div&gt;&amp;#10;        &lt;/div&gt;&amp;#10;    `;&amp;#10;&amp;#10;    // Add modal to body&amp;#10;    document.body.innerHTML += modalHTML;&amp;#10;&amp;#10;    // Ensure modal is visible&amp;#10;    const modal = document.getElementById('door1Modal');&amp;#10;    if (modal) {&amp;#10;        modal.style.display = 'flex';&amp;#10;        console.log("Modal should be visible now"); // Debug log&amp;#10;    }&amp;#10;}&amp;#10;&amp;#10;// Function to close the modal&amp;#10;function closeDoor1Modal() {&amp;#10;    const modal = document.getElementById('door1Modal');&amp;#10;    if (modal) {&amp;#10;        modal.style.display = 'none';&amp;#10;        &amp;#10;        // Show question elements after modal is closed&amp;#10;        const popupOverlay = document.getElementById('popupOverlay');&amp;#10;        const questionPopup = document.getElementById('questionPopup');&amp;#10;        &amp;#10;        if (popupOverlay) popupOverlay.style.display = 'block';&amp;#10;        if (questionPopup) questionPopup.style.display = 'block';&amp;#10;    }&amp;#10;}</field>
+            </shadow>
+          </value>
+          <next>
+            <block type="setActiveCamera" id="|Z.)Hvq/BkcNKTN%x{t1">
+              <value name="CAMERA">
+                <shadow type="objectList" id="K.MwhTOJp|@|K(sciL_y">
+                  <field name="FIELDNAME">Camera_R1</field>
+                </shadow>
+              </value>
+              <next>
+                <block type="tweenCameraExt" id="#e}?IZB2*jjUUnw/?of/">
+                  <mutation xmlns="http://www.w3.org/1999/xhtml" whenfinishedslot="false"></mutation>
+                  <field name="MOVEMENT_TYPE">LINEAR</field>
+                  <value name="POSITION">
+                    <block type="getActiveCamera" id="y=m/9ShUVXdBjKpP{d[i"></block>
+                  </value>
+                  <value name="DURATION">
+                    <shadow type="math_number" id=",q,*S34Qg!a2VyHv6+}C">
+                      <field name="NUM">3</field>
+                    </shadow>
+                  </value>
+                </block>
+              </next>
+            </block>
+          </next>
+        </block>
+      </statement>
+    </block>
+    <block xmlns="https://developers.google.com/blockly/xml" type="execScript" id="(gRi2ZcZviFjU%@J#Og3" x="150" y="510">
+      <value name="TEXT">
+        <shadow type="textMultiline" id="lpG?}$s:R.RfuYhO16L1">
+          <field name="HIGHLIGHT_MODE">html</field>
+          <field name="TEXT" editor-height="10" editor-width="520">&lt;div class="modal-overlay" id="door1Modal"&gt;&amp;#10;            &lt;div class="modal"&gt;&amp;#10;                &lt;h2&gt;Welcome to the First Room!&lt;/h2&gt;&amp;#10;                &lt;p&gt;You need to find 2 pieces of paper and answer the corresponding questions before proceeding to the next room.&lt;/p&gt;&amp;#10;                &lt;button class="close-button" onclick="closeDoor1Modal()"&gt;Got it!&lt;/button&gt;&amp;#10;            &lt;/div&gt;&amp;#10;        &lt;/div&gt;</field>
+        </shadow>
+      </value>
+    </block>
+  </tab>
+  <editorsettings viewport-x="1018" viewport-y="50.5" viewport-w="576" viewport-h="382.5" viewport-hidden="false" toolbox-library-mode="false" toolbox-minimized-mode="false"></editorsettings>
+</xml>

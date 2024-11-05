@@ -1,0 +1,55 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <tab name="Init" type="InitTab" active="false" scrollx="24.885815858840942" scrolly="0" scale="1"></tab>
+  <tab name="New Tab" type="CommonTab" active="true" scrollx="-6.709529376286355" scrolly="-6.1990202551125435" scale="0.9328183401816788">
+    <block xmlns="https://developers.google.com/blockly/xml" type="setActiveCamera" id="Ujo!ND)B2U1kO.^z)]!J" x="130" y="90">
+      <value name="CAMERA">
+        <shadow type="objectList" id="c}1/)0cV1v.ID%%f#-7t">
+          <field name="FIELDNAME">Camera_Start</field>
+        </shadow>
+      </value>
+    </block>
+    <block xmlns="https://developers.google.com/blockly/xml" type="whenClicked" id="55;fv`G%$XFdlBWH5!`B" inline="false" x="150" y="290">
+      <mutation xmlns="http://www.w3.org/1999/xhtml" adveventoptions="false" enableifmissed="false"></mutation>
+      <field name="X_RAY">FALSE</field>
+      <field name="DOUBLE_CLICK">FALSE</field>
+      <field name="LEFT_BUTTON">TRUE</field>
+      <field name="MIDDLE_BUTTON">TRUE</field>
+      <field name="RIGHT_BUTTON">TRUE</field>
+      <value name="VALUE">
+        <shadow type="objectList" id="T^{Z]L|TlcguHV[!?[:u">
+          <field name="FIELDNAME">Door_1</field>
+        </shadow>
+      </value>
+      <statement name="DO">
+        <block type="callJSFunction" id="#FM#TTj4}M:8{_Rk~e-=">
+          <mutation xmlns="http://www.w3.org/1999/xhtml" name="showDoor1Modal"></mutation>
+          <field name="NAME">showDoor1Modal</field>
+          <next>
+            <block type="setActiveCamera" id="|Z.)Hvq/BkcNKTN%x{t1">
+              <value name="CAMERA">
+                <shadow type="objectList" id="K.MwhTOJp|@|K(sciL_y">
+                  <field name="FIELDNAME">Camera_R1</field>
+                </shadow>
+              </value>
+              <next>
+                <block type="tweenCameraExt" id="#e}?IZB2*jjUUnw/?of/">
+                  <mutation xmlns="http://www.w3.org/1999/xhtml" whenfinishedslot="false"></mutation>
+                  <field name="MOVEMENT_TYPE">LINEAR</field>
+                  <value name="POSITION">
+                    <block type="getActiveCamera" id="y=m/9ShUVXdBjKpP{d[i"></block>
+                  </value>
+                  <value name="DURATION">
+                    <shadow type="math_number" id=",q,*S34Qg!a2VyHv6+}C">
+                      <field name="NUM">3</field>
+                    </shadow>
+                  </value>
+                </block>
+              </next>
+            </block>
+          </next>
+        </block>
+      </statement>
+    </block>
+  </tab>
+  <editorsettings viewport-x="1018" viewport-y="50.5" viewport-w="576" viewport-h="382.5" viewport-hidden="false" toolbox-library-mode="false" toolbox-minimized-mode="false"></editorsettings>
+</xml>
