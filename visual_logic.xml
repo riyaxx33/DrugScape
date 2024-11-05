@@ -86,7 +86,7 @@
       <field name="RIGHT_BUTTON">TRUE</field>
       <value name="VALUE">
         <shadow type="objectList" id="8sj?P;aZBe8Pg@:{ww$C">
-          <field name="FIELDNAME">R1_1</field>
+          <field name="FIELDNAME">QR_Room1</field>
         </shadow>
       </value>
       <statement name="DO">
